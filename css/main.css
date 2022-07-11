@@ -1,147 +1,238 @@
+/* Variables */
 :root {
-  --dark: #374151;
-  --darker: #1f2937;
-  --darkest: #111827;
-  --gray: #6b7280;
+  --primary: rgba(7, 86, 151, 0.836);
+  --business: #3a82ee;
+  --personal: var(--primary);
   --light: #eee;
-  --pink: #ec4899;
-  --purple: #8b5cf6;
+  --grey: #888;
+  --dark: #313154;
+  --danger: #ff5b57;
+
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+  --personal-glow: 0px 0px 4px rgba(11, 52, 235, 0.75);
 }
+/* End of Variables */
+
+/* Resets */
 * {
-  box-sizing: border-box;
   margin: 0;
-  font-family: "fira sans", sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
 }
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: var(--dark);
-  color: #fff;
-}
-header {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-}
-header h1 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--gray);
-  margin-bottom: 1rem;
-}
-#new-task-form {
-  display: flex;
-}
-input,
+
+input:not([type="radio"]):not([type="checkbox"]),
 button {
   appearance: none;
   border: none;
   outline: none;
   background: none;
+  cursor: initial;
 }
-#new-task-input {
-  flex: 1 1 0%;
-  background-color: var(--darker);
-  padding: 1rem;
-  border-radius: 1rem;
-  margin-right: 1rem;
-  color: var(--light);
-  font-size: 1.25rem;
+/* End of Resets */
+
+body {
+  background: var(--light);
+  color: var(--dark);
 }
 
-#new-task-input::placeholder {
-  color: var(--gray);
+section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-#new-task-submit {
-  color: var(--pink);
-  font-size: 1.25rem;
+h3 {
+  color: var(--dark);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  color: var(--grey);
+  font-size: 0.875rem;
   font-weight: 700;
-  background-image: linear-gradient(to right, var(--pink), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  cursor: pointer;
-  transition: 0.4s;
+  margin-bottom: 0.5rem;
 }
 
-#new-task-submit:hover {
-  opacity: 0.8;
+.greeting .title {
+  display: flex;
 }
-#new-task-submit:active {
-  opacity: 0.6;
-}
-main {
+
+.greeting .title input {
+  margin-left: 0.5rem;
   flex: 1 1 0%;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
+  min-width: 0;
 }
 
-.task-list {
-  padding: 1rem;
-}
-
-.task-list h2 {
+.greeting .title,
+.greeting .title input {
+  color: var(--dark);
   font-size: 1.5rem;
-  font-weight: 300;
-  color: var(--gray);
-  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-#tasks.task {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--darkest);
-  padding: 1rem;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-}
-#tasks .task .content {
-  flex: 1 1 0%;
-}
-
-#tasks .task .content .text {
-  color: var(--light);
-  font-size: 1.125rem;
-  width: 100%;
+.create-todo input[type="text"] {
   display: block;
-  transition: 0.4s;
-}
-
-#tasks .task .content .text.not(:read-only) {
-  color: var(--pink);
-}
-
-#tasks .task .actions {
-  display: flex;
-  margin: 0 -0.5rem;
-}
-
-.task .actions button {
-  cursor: pointer;
-  margin: 0 0.5rem;
+  width: 100%;
   font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: var(--dark);
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-todo .options label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid var(--business);
+  box-shadow: var(--business-glow);
+}
+
+.bubble.personal {
+  border-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+.bubble::after {
+  content: "";
+  display: block;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  background-color: var(--business);
+  box-shadow: var(--business-glow);
+  border-radius: 999px;
+  transition: 0.2s ease-in-out;
+}
+
+.bubble.personal::after {
+  background-color: var(--personal);
+  box-shadow: var(--personal-glow);
+}
+
+input:checked ~ .bubble::after {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+}
+
+.create-todo .options label div {
+  color: var(--dark);
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.create-todo input[type="submit"] {
+  display: block;
+  width: 100%;
+  font-size: 1.125rem;
+  padding: 1rem 1.5rem;
+  color: #fff;
   font-weight: 700;
   text-transform: uppercase;
-  transition: 0.4s;
+  background-color: var(--primary);
+  box-shadow: var(--personal-glow);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-out;
 }
 
-.task .actions button:hover {
-  opacity: 0.8;
+.create-todo input[type="submit"]:hover {
+  opacity: 0.75;
 }
 
-.task .actions button:active {
-  opacity: 0.6;
+.todo-list .list {
+  margin: 1rem 0;
 }
 
-.task .actions .edit {
-  background-image: linear-gradient(to right, var(--pink), var(--purple));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.todo-list .todo-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1rem;
 }
 
-.task .actions .delete {
-  color: crimson;
+.todo-item label {
+  display: block;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-item .todo-content {
+  flex: 1 1 0%;
+}
+
+.todo-item .todo-content input {
+  color: var(--dark);
+  font-size: 1.125rem;
+}
+
+.todo-item .actions {
+  display: flex;
+  align-items: center;
+}
+
+.todo-item .actions button {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.todo-item .actions button:hover {
+  opacity: 0.75;
+}
+
+.todo-item .actions .edit {
+  margin-right: 0.5rem;
+  background-color: var(--primary);
+}
+
+.todo-item .actions .delete {
+  background-color: var(--danger);
+}
+
+.todo-item.done .todo-content input {
+  text-decoration: line-through;
+  color: var(--grey);
 }

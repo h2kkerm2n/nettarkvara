@@ -11,7 +11,7 @@
 }
 .card-img {
   width: 100%;
-  height: 100%;
+  height: 30vh;
 }
 .card-images {
   height: 100%;
@@ -59,4 +59,13 @@
   display: none;
   background-color: white;
   overflow: hidden;
+}
+.form-control {
+  margin-top: 2vh;
+}
+.btn-primary {
+  margin-bottom: 2vh;
+}
+.btn-secondary {
+  margin-bottom: 2vh;
 }
