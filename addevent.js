@@ -4,10 +4,14 @@ const addDate = document.querySelector('input[type="date"]');
 const place = document.querySelector("#placeholder");
 const comments = document.querySelector("#comment");
 const eventList = document.querySelector(".event-table");
+const deleteEventBtn = document.querySelector(".delete-btn");
 
 //event listeners
 
 addButton.addEventListener("click", addEvents);
+deleteEventBtn.addEventListener("click", () => {
+  tableData.remove();
+});
 
 //functions
 function addEvents(event) {

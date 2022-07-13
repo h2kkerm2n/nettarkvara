@@ -44,10 +44,7 @@ h2 {
 .event-table th {
   font-size: bold;
 }
-.delete-btn,
-.edit-btn {
-  border: none;
-  margin-top: 10px;
-  display: inline;
-  margin-right: 10px;
+.deleteButton {
+  display: flex;
+  justify-content: center;
 }
