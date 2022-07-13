@@ -11,11 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+    <link rel="stylesheet" href="css/addevent.css" />
     <title>NULLAM / Welcome!</title>
   </head>
   <body>
@@ -58,69 +54,86 @@
         <img src="./images/symbol.svg" alt="symbol" />
       </div>
     </nav>
-    <!-- App Wrapper -->
-    <main class="app">
-      <!-- Greeting -->
-      <section class="greeting">
-        <h2 class="title">
-          What's up, <input type="text" id="name" placeholder="Name here" />
-        </h2>
-      </section>
-      <!-- End of Greeting -->
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-10">
+          <h1 class="card-title">Add event</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <h2>Add your event</h2>
+      <form action="/action_page.php">
+        <div class="mb-3 mt-3">
+          <label for="event">Event name:</label>
+          <input
+            type="event"
+            class="form-control"
+            id="eventholder"
+            placeholder=""
+            name="event"
+          />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="Date">Date:</label>
+          <input
+            type="Date"
+            class="form-control"
+            id="Dateholder"
+            placeholder=""
+            name="Date"
+          />
+        </div>
 
-      <!-- New Todo -->
-      <section class="create-todo">
-        <form id="new-todo-form">
-          <h4>What's on your todo?</h4>
-          <input type="text" placeholder="" name="content" id="content" />
-
-          <h4>Pick a category</h4>
-          <div class="options">
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category1"
-                value="business"
-              />
-              <span class="bubble business"></span>
-              <div>Business</div>
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="category"
-                id="category2"
-                value="personal"
-              />
-              <span class="bubble personal"></span>
-              <div>Personal</div>
-            </label>
-          </div>
-
-          <input type="submit" value="Add Event" />
-          <a
-            href="index.html"
-            class="btn btn-primary btn-sm active"
-            role="button"
-            aria-pressed="true"
-            >Back</a
-          >
-        </form>
-      </section>
-      <!-- End of New Todo -->
-
-      <!-- Todo List -->
-      <section class="todo-list">
-        <div class="list" id="todo-list"></div>
-      </section>
-      <!-- End of Todo List -->
-    </main>
-    <!-- End of App Wrapper -->
-
-    <!-- JS Import -->
-    <script src="main.js"></script>
-    <!-- End of JS Import -->
+        <div class="mb-3">
+          <label for="pwd">Place:</label>
+          <input
+            type="Place"
+            class="form-control"
+            id="placeholder"
+            placeholder=""
+            name="Place"
+          />
+        </div>
+        <div class="container mt-3">
+          <form action="/action_page.php">
+            <div class="mb-3 mt-3">
+              <label for="comment">Comments:</label>
+              <textarea
+                class="form-control"
+                rows="5"
+                id="comment"
+                name="text"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="form-check mb-3"></div>
+        <a
+          href="index.html"
+          class="btn btn-primary btn-sm active"
+          role="button"
+          aria-pressed="true"
+          >Back</a
+        >
+        <a
+          id="addEvent"
+          href="#"
+          class="btn btn-secondary btn-sm active"
+          role="button"
+          aria-pressed="true"
+          >Add</a
+        >
+      </form>
+    </div>
+    <div class="table">
+      <table class="event-table">
+        <th>Event name</th>
+        <th>Date</th>
+        <th>Place</th>
+        <th>Comments</th>
+      </table>
+    </div>
 
     <footer>
       <div class="card text-center">
@@ -145,7 +158,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -161,6 +173,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="main.js"></script>
+    <script src="addevent.js
+    "></script>
   </body>
 </html>
